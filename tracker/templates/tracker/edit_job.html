@@ -1,18 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Edit Job</title>
-</head>
-<body>
-    <h1>Edit Job</h1>
+{% extends 'base_generic.html' %}
 
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Save Changes</button>
-    </form>
+{% block title %}Edit Job - Job Tracker{% endblock %}
 
-    <a href="{% url 'home' %}">Back to Home</a>
-</body>
-</html>
+{% block content %}
+    <h1 class="text-center mb-4">Edit Job Application</h1>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-header text-center bg-warning text-white">
+                    <h3>Edit Job</h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-warning btn-block mt-4">Update Job</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
